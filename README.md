@@ -20,21 +20,49 @@ The **Events Library** provides an asynchronous solution for dispatching events 
 
 ### 2. Installation
 
-To install this library, add the following dependency to your project. For example, if using **Maven**:
+1. **Configure the GitHub Packages repository** in your project's `pom.xml`:
 
-```xml
-<dependency>
-    <groupId>com.f5app</groupId>
-    <artifactId>eventpublisher</artifactId>
-    <version>1.0.0</version>
-</dependency>
-```
+   Add the following block in the `<repositories>` section to allow Maven to find the dependency in GitHub Packages:
 
-Or with **Gradle**:
+   ```xml
+   <repositories>
+       <repository>
+           <id>github</id>
+           <url>https://maven.pkg.github.com/Fulbito5Manager/events_library</url>
+       </repository>
+   </repositories>
+   ```
 
-```groovy
-implementation 'com.f5app:eventpublisher:1.0.0'
-```
+2. **Add the library dependency** in the `pom.xml`:
+
+   ```xml
+   <dependencies>
+       <dependency>
+           <groupId>com.f5app</groupId>
+           <artifactId>eventpublisher</artifactId>
+           <version>1.0.0</version>
+       </dependency>
+   </dependencies>
+   ```
+
+3. **Configure Maven `settings.xml`** to authenticate with GitHub Packages:
+
+   Edit or create the `settings.xml` file in the `~/.m2/` directory and add GitHub credentials. Use your **GitHub username** and **personal access token** as the password:
+
+   ```xml
+   <settings>
+       <servers>
+           <server>
+               <id>github</id>
+               <username>YOUR_GITHUB_USERNAME</username>
+               <password>YOUR_GITHUB_TOKEN</password>
+           </server>
+       </servers>
+   </settings>
+   ```
+
+    - **`YOUR_GITHUB_USERNAME`**: Your GitHub username.
+    - **`YOUR_GITHUB_TOKEN`**: The personal access token you generated on GitHub with `read:packages` permissions.
 
 ### 3. Usage
 

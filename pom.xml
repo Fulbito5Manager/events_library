@@ -13,6 +13,13 @@
 	<version>1.0.0</version>
 	<name>Event Publisher</name>
 	<description>Event publisher library</description>
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub Packages</name>
+			<url>https://maven.pkg.github.com/Fulbito5Manager/events_library</url>
+		</repository>
+	</distributionManagement>
 	<url/>
 	<licenses>
 		<license/>
