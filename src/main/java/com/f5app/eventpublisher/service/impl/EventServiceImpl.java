@@ -6,6 +6,7 @@ import com.f5app.eventpublisher.service.EventService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,12 +22,17 @@ public class EventServiceImpl implements EventService {
     }
 
     @Override
-    public String sendEvent(Topic topic, Event eventData){
+    @Async
+    public void sendEvent(Topic topic, Event eventData){
+        if(eventData == null)
+            return;
+
         log.info(
                 "Sending message to topic={} with data={}",
                 topic,
                 eventData
         );
+
         String eventString;
         try {
             eventString = objectMapper.writeValueAsString(eventData);
@@ -34,6 +40,5 @@ public class EventServiceImpl implements EventService {
             throw new RuntimeException(e);
         }
         kafkaTemplate.send(topic.getTopicValue(),eventString);
-        return "";
     }
 }

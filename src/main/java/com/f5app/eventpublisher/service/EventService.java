@@ -5,6 +5,6 @@ import com.f5app.eventpublisher.domain.Topic;
 
 public interface EventService {
 
-    String sendEvent(Topic topic, Event eventData);
+    void sendEvent(Topic topic, Event eventData);
 
 }

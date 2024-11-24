@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.f5app</groupId>
 	<artifactId>eventpublisher</artifactId>
-	<version>1.0.0</version>
+	<version>1.2.1</version>
 	<name>Event Publisher</name>
 	<description>Event publisher library</description>
 	<distributionManagement>
